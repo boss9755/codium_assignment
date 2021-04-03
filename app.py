@@ -35,10 +35,8 @@ def function_C1():
             break
         else:
             n = int(buffer)
-            for i in range(n):
-                for j in range(i+1):
-                    print("*",end = "")
-                print("")
+            for i in range(1,n+1):
+                print("*"*i)
 
 # 3.2
 def function_C2():
@@ -48,14 +46,8 @@ def function_C2():
             break
         else:
             n = int(buffer)
-            k = 2*n-2
-            for i in range(n):
-                for j in range(k):
-                    print(end = " ")
-                k = k-2
-                for j in range(i+1):
-                    print("*", end = " ")
-                print("")
+            for i in range(1,n+1):
+                print(" "*(n-i) + "*"*i)
 
 # 3.3
 def function_C3():
@@ -66,18 +58,10 @@ def function_C3():
         else:
             n = int(buffer)
             for i in range(1,n+1):
-                for j in range(i,n):
-                    print(" ", end="")
-                print("*", end="")
-                k = 1
-                while k < 2 * (i - 1):
-                    print(" ",end="")
-                    k += 1
-                if i == 1:
-                    print("")
+                if (i == 1):
+                    print(" "*(n-i) + "*" + " "*(n-i))
                 else:
-                    print('*')
-
+                    print(" "*(n-i) + "*" + " "*(2*i-3) + "*")
 # 3.4
 def function_C4():
     while(1):
@@ -104,9 +88,12 @@ def function_C6():
             break
         else:
             n = int(buffer)
+# 4
+def function_D():
+    print("Hello")
 
 # Write a program that finds all prime numbers up to n for input n. 
-def function_D():
+def function_E():
     while(1):
         buffer = input("Enter the number (Press 'Enter' to exit): ")
         if buffer == "":
@@ -115,18 +102,48 @@ def function_D():
             n = int(buffer)
             print(n,"->", end=" ")
             for i in range(2, n+1):
-                if i > 1:
-                    for j in range(2,i):
-                        if (i % j == 0):
-                            break
-                    else:
-                        print(i, end=" ")
+                for j in range(2,i):
+                    if (i % j == 0):
+                        break
+                else:
+                    print(i, end=" ")
         print("")
 
-#function_A()
-#function_B()
-#function_C1()
-#function_C2()
-#function_C3()
-#function_C4()
-#function_D()
+while(1):
+    print("\nWelcome to the program")
+    print("Press '1' to answer Question 1")
+    print("Press '2' to answer Question 2")
+    print("Press '3.1' to answer Question 3.1")
+    print("Press '3.2' to answer Question 3.2")
+    print("Press '3.3' to answer Question 3.3")
+    print("Press '3.4' to answer Question 3.4")
+    print("Press '3.5' to answer Question 3.5")
+    print("Press '3.6' to answer Question 3.6")
+    print("Press '4' to answer Question 4")
+    print("Press '5' to answer Question 5")
+    select = input("Select the task (press 'Enter' to exit): ")
+    if select == "":
+        break
+    else:
+        if select == "1":
+           function_A()
+        elif select == "2":
+            function_B()
+        elif select == "3.1":
+            function_C1()
+        elif select == "3.2":
+            function_C2()
+        elif select == "3.3":
+            function_C3()
+        elif select == "3.4":
+            function_C4()
+        elif select == "3.5":
+            function_C5()
+        elif select == "3.6":
+            function_C6()
+        elif select == "4":
+            function_D()
+        elif select == "5":
+            function_E()
+        else:
+            print("Please select again!")
