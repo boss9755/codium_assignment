@@ -87,11 +87,11 @@ def function_C5():
             break
         else:
             n = int(buffer)
-            for i in range(1,n+1) :
+            for i in range(1,n+1):
                 if (i%2!=0):
                     x = (n - i)//2
                     print(" "*x + "*"*i + " "*x)
-            for j in range(n-1, 0, -1) :
+            for j in range(n-1, 0, -1):
                 if (j%2!=0):
                     x = (n-j)//2
                     print(" "*x + "*"*j + " "*x)
@@ -103,8 +103,36 @@ def function_C6():
             break
         else:
             n = int(buffer)
+            length = (n*2)-1
+            left_index = n-1
+            right_index = left_index
+            left_char = "A"
+            right_char = "B"
+            is_edge_marked = False
+            for i in range(length):
+                for j in range(length):
+                    if j == left_index or j == right_index:
+                        print("+", end = "")
+                    elif j < left_index:
+                        print(left_char, end = "")
+                    elif j > right_index:
+                        print(right_char, end = "")
+                    else:
+                        print("E", end = "")
+                print()
+                
+                if right_index == length - 1:
+                    is_edge_marked = True
 
-            
+                if is_edge_marked:
+                    left_char = "C"
+                    right_char = "D"
+                    left_index = left_index + 1
+                    right_index = right_index - 1
+                else:
+                    left_index = left_index - 1
+                    right_index = right_index + 1
+
 # 4. What's the difference between else and finally in exception handling?
 def function_D():
     print("In else, if exception is raised then this code will not run.")
@@ -126,42 +154,44 @@ def function_E():
                 else:
                     print(i, end=" ")
         print()
-
-while(1):
-    print("\nWelcome to the program")
-    print("Press '1' to answer Question 1")
-    print("Press '2' to answer Question 2")
-    print("Press '3.1' to answer Question 3.1")
-    print("Press '3.2' to answer Question 3.2")
-    print("Press '3.3' to answer Question 3.3")
-    print("Press '3.4' to answer Question 3.4")
-    print("Press '3.5' to answer Question 3.5")
-    print("Press '3.6' to answer Question 3.6")
-    print("Press '4' to answer Question 4")
-    print("Press '5' to answer Question 5")
-    select = input("Select the task (press 'Enter' to exit): ")
-    if select == "":
-        break
-    else:
-        if select == "1":
-           function_A()
-        elif select == "2":
-            function_B()
-        elif select == "3.1":
-            function_C1()
-        elif select == "3.2":
-            function_C2()
-        elif select == "3.3":
-            function_C3()
-        elif select == "3.4":
-            function_C4()
-        elif select == "3.5":
-            function_C5()
-        elif select == "3.6":
-            function_C6()
-        elif select == "4":
-            function_D()
-        elif select == "5":
-            function_E()
+def main():
+    while(1):
+        print("\nWelcome to the program")
+        print("Press '1' to answer Question 1")
+        print("Press '2' to answer Question 2")
+        print("Press '3.1' to answer Question 3.1")
+        print("Press '3.2' to answer Question 3.2")
+        print("Press '3.3' to answer Question 3.3")
+        print("Press '3.4' to answer Question 3.4")
+        print("Press '3.5' to answer Question 3.5")
+        print("Press '3.6' to answer Question 3.6")
+        print("Press '4' to answer Question 4")
+        print("Press '5' to answer Question 5")
+        select = input("Select the task (press 'Enter' to exit): ")
+        if select == "":
+            break
         else:
-            print("Please select again!")
+            if select == "1":
+               function_A()
+            elif select == "2":
+                function_B()
+            elif select == "3.1":
+                function_C1()
+            elif select == "3.2":
+                function_C2()
+            elif select == "3.3":
+                function_C3()
+            elif select == "3.4":
+                function_C4()
+            elif select == "3.5":
+                function_C5()
+            elif select == "3.6":
+                function_C6()
+            elif select == "4":
+                function_D()
+            elif select == "5":
+                function_E()
+            else:
+                print("Please select again!")
+
+main()
