@@ -1,3 +1,4 @@
+# Benjapol Suriyachantananont
 # 1.Write a program that prints the numbers from 1 to 100. But for multiples of three print “Fizz” instead of the number 
 # and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.
 def function_A():
@@ -70,6 +71,13 @@ def function_C4():
             break
         else:
             n = int(buffer)
+            for i in range(1,n+1):
+                for j in range(1,n+1):
+                    if (i == j or i+j == n+1):
+                        print("*",end="")
+                    else:
+                        print(" ",end="")
+                print()
 
 # 3.5
 def function_C5():
@@ -79,7 +87,14 @@ def function_C5():
             break
         else:
             n = int(buffer)
-
+            for i in range(1,n+1) :
+                if (i%2!=0):
+                    x = (n - i)//2
+                    print(" "*x + "*"*i + " "*x)
+            for j in range(n-1, 0, -1) :
+                if (j%2!=0):
+                    x = (n-j)//2
+                    print(" "*x + "*"*j + " "*x)
 # 3.6
 def function_C6():
     while(1):
@@ -88,9 +103,12 @@ def function_C6():
             break
         else:
             n = int(buffer)
-# 4
+
+            
+# 4. What's the difference between else and finally in exception handling?
 def function_D():
-    print("Hello")
+    print("In else, if exception is raised then this code will not run.")
+    print("But in finally, if exception is raised then this code still run")
 
 # Write a program that finds all prime numbers up to n for input n. 
 def function_E():
@@ -107,7 +125,7 @@ def function_E():
                         break
                 else:
                     print(i, end=" ")
-        print("")
+        print()
 
 while(1):
     print("\nWelcome to the program")
